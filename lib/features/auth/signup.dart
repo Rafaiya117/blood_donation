@@ -1,17 +1,18 @@
-import 'package:blood_donation/custom_widget/custom_input_widget.dart';
+import 'package:blood_donation/features/auth/custom_widget/custom_input_widget.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool isChecked = false;
   final _formkey = GlobalKey<FormState>();
-
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -50,6 +51,30 @@ class _LoginPageState extends State<LoginPage> {
                   key: _formkey,
                   child: Column(
                     children: <Widget>[
+                      CustomTextField(
+                        label: "Full Name",
+                        hint: "",
+                        controller: nameController,
+                        validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "";
+                        }
+                        return null;
+                      },
+                     ),
+                      const SizedBox(height: 12),
+                      CustomTextField(
+                        label: "Phone number",
+                        hint: "",
+                        controller: phoneController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "";
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 12),
                       CustomTextField(
                         label: "Email Address",
                         hint: "",

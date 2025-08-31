@@ -1,13 +1,13 @@
-import 'package:blood_donation/pages/landing_page.dart';
-import 'package:blood_donation/pages/landing_page_two.dart';
+import 'package:blood_donation/core/theme.dart';
+import 'package:blood_donation/features/pages/landing_screens/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LandingPageOne extends StatelessWidget {
-  const LandingPageOne({super.key});
+class LandingPageTwo extends StatelessWidget {
+  const LandingPageTwo({super.key});
 
   @override
-  Widget build(BuildContext context) {
+    Widget build(BuildContext context) {
     return Scaffold(
       body:SafeArea(
         child: Container(
@@ -18,18 +18,18 @@ class LandingPageOne extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset(
-              'assets/images/blood-1.png',
-              width: 165,
-              height: 165,
+              'assets/images/screen2.png',
+              width: 176,
+              height: 144,
               ),
               SizedBox(height: 10,),
               Text(
-                "Donate Blood",
+                "Find Blood Doner",
                 style:GoogleFonts.inriaSans(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: AppColors.secondColor,
                   fontSize: 32
-                ),
+                )
               ),
               SizedBox(height: 6,),
               Text.rich(
@@ -37,21 +37,15 @@ class LandingPageOne extends StatelessWidget {
                   style:GoogleFonts.inriaSans(
                     fontWeight: FontWeight.w700,
                     fontSize: 13,
-                    color: Colors.black,
+                    color: AppColors.secondColor,
                   ),
                   children:[
                     TextSpan(
-                      text: "Your donation can save many\n"),
+                      text: "Reach to thousands of Blood Donors\n"),
                     TextSpan(
-                      text: "lives ",
-                      style: GoogleFonts.inriaSans(
-                        color: Colors.black
-                      ),
-                    ),
-                    TextSpan(
-                      text: "make a difference",
-                      style: GoogleFonts.inriaSans(
-                        color: Colors.black
+                      text: "  on a tap of a button ",
+                      style:GoogleFonts.inriaSans(
+                        color: AppColors.secondColor
                       ),
                     ),
                   ],
@@ -69,7 +63,7 @@ class LandingPageOne extends StatelessWidget {
                         height: 8,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: inActive? Color(0xFFff0000): Colors.grey[300]
+                          color: inActive? AppColors.buttonColors: Colors.grey[300]
                         ),
                       );
                     }
@@ -78,10 +72,10 @@ class LandingPageOne extends StatelessWidget {
                 SizedBox(height: 290,),
                 ElevatedButton(
                   onPressed: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=> LandingPageTwo()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context)=> LandingPage()));
                   },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFff0000),
+                      backgroundColor: AppColors.buttonColors,
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       )
@@ -91,18 +85,18 @@ class LandingPageOne extends StatelessWidget {
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         "Next",
-                        style: TextStyle(
+                        style:GoogleFonts.inriaSans(
                           color: Colors.white,
                           fontSize: 24
                         ),
-                          textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-           ),
-          );
-        }
+          ),
+        );
       }
+    }

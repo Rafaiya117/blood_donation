@@ -1,5 +1,6 @@
-import 'package:blood_donation/pages/landing_page.dart';
-import 'package:blood_donation/pages/splash.dart';
+import 'package:blood_donation/core/app_route/router.dart';
+import 'package:blood_donation/features/pages/screens/splash/controller/splash_screen_controller.dart';
+import 'package:blood_donation/features/pages/screens/splash/view/splash_screen_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: SplashScreenState(),
+      routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
     );
   }
