@@ -1,7 +1,9 @@
+import 'package:blood_donation/features/pages/feed_page/view/feed_page.dart';
 import 'package:blood_donation/features/pages/home_page/view/home_page_view.dart';
 import 'package:blood_donation/features/pages/landing_screens/landing_page_one.dart';
 import 'package:blood_donation/features/pages/screens/splash/controller/splash_screen_controller.dart';
 import 'package:blood_donation/features/pages/screens/splash_screen_two/controller/splash_screen_two_controller.dart';
+import 'package:blood_donation/features/pages/survey_questions/view/survey_question.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -39,6 +41,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/home',
       builder: (context, state) => const HomePageView(),
+    ),
+    GoRoute(
+      path: '/survey_page',
+      builder: (context, state) => const SurveyQuestionsPage(),
+    ),
+    GoRoute(
+      path: '/feed_page',
+      builder: (context, state) => const FeedPage(),
     ),
   ],
 );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
@@ -29,17 +31,23 @@ class HomePageView extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 40.0),
+          padding: const EdgeInsets.symmetric(vertical: 250.0, horizontal: 58.0),
           child: Column(
             children: [
               Text(
-                "Choose Wich one you need"
+                "Choose Wich one you need",
+                style: GoogleFonts.inriaSans(
+                  fontSize: 15.35,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xFF1E1A17),
+                ),
               ),
               SizedBox(height: 20,),
               Row(
                 children: [
                   SizedBox(
-                    width: 160,
+                    width: 142,
+                    height: 142,
                     child: GestureDetector(
                       onTap: () {
                         print("Card tapped!");
@@ -54,8 +62,8 @@ class HomePageView extends StatelessWidget {
                           height: 88,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.grey, width: 2),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.grey, width: 1.5),
                             boxShadow: [
                               BoxShadow(
                                 // ignore: deprecated_member_use
@@ -75,7 +83,16 @@ class HomePageView extends StatelessWidget {
                                     'assets/images/donate.png',
                                     fit: BoxFit.contain,
                                   ),
-                                  Text("Finder"),
+                                  Flexible(
+                                    child: Text(
+                                      "Finder",
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                        color: Color(0xFF1E1A17),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -86,10 +103,12 @@ class HomePageView extends StatelessWidget {
                   ),
                   SizedBox(width: 10),
                   SizedBox(
-                    width: 160,
+                    width: 142,
+                    height: 142,
                     child: GestureDetector(
                       onTap: () {
-                        print("Card tapped!");
+                        context.push('/survey_page');
+                        //print("Card tapped!");
                       },
                       child: Card(
                         elevation: 6,
@@ -101,26 +120,39 @@ class HomePageView extends StatelessWidget {
                           height: 88,
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: Colors.grey, 
-                              width: 2,
-                            ),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: Colors.grey, width: 1.5),
                             boxShadow: [
                               BoxShadow(
                                 // ignore: deprecated_member_use
-                                color: Colors.black.withOpacity(0.2,),
-                                offset: Offset(-4, 4), 
+                                color: Colors.black.withOpacity(0.2),
                                 spreadRadius: 2,
                                 blurRadius: 6,
+                                offset: Offset(-4, 4),
                               ),
                             ],
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(
-                              'assets/images/need-blood.png',
-                              fit: BoxFit.contain,
+                            child: Expanded(
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/need-blood.png',
+                                    fit: BoxFit.contain,
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      "Doner",
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                        color: Color(0xFF1E1A17),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

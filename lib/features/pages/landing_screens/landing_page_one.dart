@@ -77,32 +77,32 @@ class LandingPageOne extends StatelessWidget {
                 ),
                 SizedBox(height: 290,),
                 ElevatedButton(
-                  onPressed: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=> LandingPageTwo()));
-                  },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.buttonColors,
-                      shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      )
-                    ),
-                    child: Container(
-                      width: 200,
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        "Next",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24
-                        ),
-                          textAlign: TextAlign.center,
-                      ),
-                    ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LandingPageTwo()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.buttonColors,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
-                ],
+                ),
+                child: Container(
+                  width: 200,
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "Next",
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
-            ),
-           ),
-          );
-        }
-      }
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
