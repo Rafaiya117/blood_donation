@@ -6,11 +6,11 @@ class CustomRadioGroup extends StatefulWidget {
   final ValueChanged<String> onChanged;
 
   const CustomRadioGroup({
-    Key? key,
+    super.key,
     required this.question,
     required this.options,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomRadioGroup> createState() => _CustomRadioGroupState();
@@ -24,14 +24,13 @@ class _CustomRadioGroupState extends State<CustomRadioGroup> {
     return Card(
       color: Colors.transparent,
       elevation: 0,
-      margin: const EdgeInsets.all(8),
-      shape: RoundedRectangleBorder(
-        //borderRadius: BorderRadius.circular(6),
-        side: const BorderSide(color: Colors.grey, width: 0.5),
-      ),
+      margin: const EdgeInsets.all(6),
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.only(left:12,top: 12, bottom: 8),
+        padding: const EdgeInsets.only(left: 12, top: 12, bottom: 8),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey, width: 0.5),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

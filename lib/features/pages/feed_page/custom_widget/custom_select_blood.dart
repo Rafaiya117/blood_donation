@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 class BloodGroupSelectorTile extends StatelessWidget {
   final VoidCallback onTap;
   final Color iconColor;
+  final String title;
+
   const BloodGroupSelectorTile({
     Key? key,
     required this.onTap,
     this.iconColor = Colors.red,
+    this.title = 'Select your Blood Group',
   }) : super(key: key);
 
   @override
@@ -14,7 +17,7 @@ class BloodGroupSelectorTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 55,
+        height: 45,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -23,10 +26,10 @@ class BloodGroupSelectorTile extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children:[
+          children: [
             Text(
-              'Select your Blood Group',
-              style: TextStyle(
+              title,
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 16,
                 fontWeight: FontWeight.w500,

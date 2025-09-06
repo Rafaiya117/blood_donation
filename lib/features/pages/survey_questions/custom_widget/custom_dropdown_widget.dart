@@ -21,58 +21,55 @@ class _CustomDropdownState extends State<CustomDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Card(
-        color: Colors.transparent,
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.black26),
-          //borderRadius: BorderRadius.circular(6),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 8),
-              DropdownButtonFormField<String>(
-                value: selectedValue,
-                hint: const Text(
-                  'Select your Blood Group',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54,
-                  ),
-                ),
-                icon: const Icon(
-                  Icons.keyboard_arrow_down,
-                  color: Colors.grey,
-                ),
-                items: widget.options.map((option) {
-                  return DropdownMenuItem(
-                    value: option,
-                    child: Text(option, style: const TextStyle(fontSize: 13)),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    selectedValue = value;
-                  });
-                  widget.onChanged(value!);
-                },
-                decoration: const InputDecoration(
-                  isDense: true,
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                  border: InputBorder.none, // ⬅️ Removed inner border
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
+    return Card(
+      color: Colors.transparent,
+      elevation: 0,
+      margin: const EdgeInsets.all(6),
+      shape: RoundedRectangleBorder(
+        side: const BorderSide(color: Colors.black26),
+        //borderRadius: BorderRadius.circular(6),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12, top: 18, bottom: 25,right: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 8),
+            DropdownButtonFormField<String>(
+              value: selectedValue,
+              hint: const Text(
+                'Select your Blood Group',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black54,
                 ),
               ),
-            ],
-          ),
+              icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+              items: widget.options.map((option) {
+                return DropdownMenuItem(
+                  value: option,
+                  child: Text(option, style: const TextStyle(fontSize: 13)),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+                widget.onChanged(value!);
+              },
+              decoration: const InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 0,
+                  vertical: 0,
+                ),
+                border: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                focusedBorder: InputBorder.none,
+              ),
+            ),
+          ],
         ),
       ),
     );
